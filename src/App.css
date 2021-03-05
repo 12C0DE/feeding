@@ -1,111 +1,112 @@
 body {
-  margin: 0;
-  padding: 0;
-  /* background-color: rgb(240, 238, 233); */
-  background-color: rgb(245, 237, 222);
-  color: rgb(90, 86, 86);
+	margin: 0;
+	padding: 0;
+	/* background-color: rgb(240, 238, 233); */
+	background-color: rgb(255, 253, 253);
+	color: rgb(90, 86, 86);
 }
 
 .header_Container {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  background-color: rgba(183, 243, 183, 0.959);
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+	background-color: rgba(183, 243, 183, 0.959);
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
 }
 
 .header_Title {
-  flex-grow: 2;
-  text-align: center;
+	flex-grow: 2;
+	text-align: center;
 }
 
 .header_Content {
-  width: 150px;
-  margin: auto;
-  text-align: center;
+	width: 150px;
+	margin: auto;
+	text-align: center;
 }
 
 .header_Content:hover {
-  background-color: rgba(90, 230, 90, 0.89);
-  border-radius: 25px;
+	background-color: rgba(90, 230, 90, 0.89);
+	border-radius: 25px;
 }
 
 .statusContainer {
-  height: 50px;
-  text-align: center;
+	height: 50px;
+	text-align: center;
 }
 
 .boobContainer {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
 }
 
 .boob {
-  height: 250px;
-  padding: 10px;
-  margin-bottom: 42px;
+	height: 250px;
+	padding: 10px;
+	margin-bottom: 42px;
 }
 /* 
 boobDrip is 17% bigger than boob
 */
 .boobDrip {
-  height: 292px;
-  padding: 10px;
+	height: 292px;
+	padding: 10px;
 }
 .btnBoob {
-  background-color: transparent;
-  border: none;
-  height: 310px;
-  width: 270px;
-  flex-shrink: 1;
+	background-color: transparent;
+	border: none;
+	height: 310px;
+	width: 270px;
+	flex-shrink: 1;
 }
 
 .btnBoob:hover {
-  cursor: pointer;
-  border-radius: 10px;
-  background-color: #c9c6b6a6;
+	cursor: pointer;
+	border-radius: 10px;
+	background-color: #c9c6b6a6;
 }
 
 .timerContainer {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .leftTimer,
 .rightTimer {
-  width: 270px;
-  text-align: center;
+	width: 270px;
+	text-align: center;
 }
 
 .leftTimer > h2,
 .rightTimer > h2 {
-  margin-top: 10px;
-  margin-bottom: 0;
+	margin-top: 10px;
+	margin-bottom: 0;
 }
 
 .timer {
-  text-align: center;
-  font-size: 32px;
+	text-align: center;
+	font-size: 32px;
 }
 
 .btnContainer {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
 }
 
 .btnContainer > button {
-  margin: 0 20px;
+	margin: 0 20px;
 }
 .calendarContainer {
-  margin-left: 25px;
+	margin-left: 25px;
 }
 
 .calendarHeadings {
-  text-align: center;
+	text-align: center;
 }
 
 .subData {
-  margin-left: 20px;
+	margin-left: 20px;
 }
