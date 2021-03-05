@@ -21,6 +21,10 @@ function Home() {
 		setRecTime
 	] = useState(false);
 	const [
+		startTime,
+		setStartTime
+	] = useState(0);
+	const [
 		disabledSide,
 		setDisabledSide
 	] = useState('');
@@ -45,6 +49,7 @@ function Home() {
 	const feedTime = (side) => {
 		if (!recTime) {
 			setRecTime(true);
+			setStartTime(Date.now());
 
 			if (side === 'L') {
 				setDisabledSide('R');
@@ -110,9 +115,13 @@ function Home() {
 	useEffect(
 		() => {
 			if (recTime) {
+				if (time > 3600) {
+					return;
+				}
 				const timer = setTimeout(
 					() => {
-						setTime(time + 1);
+						let timeDiff = Date.now() - startTime;
+						setTime(Math.floor(timeDiff / 1000));
 					},
 					[
 						1000

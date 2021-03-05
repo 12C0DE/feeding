@@ -61,7 +61,13 @@ export const DayView = ({ uid, selDate }) => {
 		<div className="calendarContainer">
 			<h2>
 				<strong>
-					<u>{times.length} feedings today</u>
+					<u>
+						{times.length}{' '}
+						{
+							times.length > 1 ? 'feedings' :
+							'feeding'}{' '}
+						today
+					</u>
 				</strong>
 			</h2>
 			<h2 className="calendarHeadings">Totals for Today</h2>
