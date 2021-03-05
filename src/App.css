@@ -43,22 +43,23 @@ body {
 }
 
 .boob {
-	height: 250px;
+	height: 180px;
 	padding: 10px;
-	margin-bottom: 42px;
+	margin-bottom: 31px;
 }
 /* 
 boobDrip is 17% bigger than boob
 */
 .boobDrip {
-	height: 292px;
+	height: 211px;
 	padding: 10px;
 }
 .btnBoob {
 	background-color: transparent;
 	border: none;
-	height: 310px;
+	height: 240px;
 	width: 270px;
+	margin-top: 5px;
 	flex-shrink: 1;
 }
 

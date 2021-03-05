@@ -15,8 +15,6 @@ function App() {
 
 	useEffect(() => {
 		auth.onAuthStateChanged((authUser) => {
-			console.log(`user is: ${authUser}`);
-
 			if (authUser) {
 				//the user just logged in OR the user was logged in
 				setUser(authUser);
