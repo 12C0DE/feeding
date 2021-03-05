@@ -116,6 +116,7 @@ function Home() {
 		() => {
 			if (recTime) {
 				if (time > 3600) {
+					setRecTime(false);
 					return;
 				}
 				const timer = setTimeout(
