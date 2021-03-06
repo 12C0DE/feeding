@@ -1,38 +1,63 @@
 body {
 	margin: 0;
 	padding: 0;
-	/* background-color: rgb(240, 238, 233); */
-	background-color: rgb(255, 253, 253);
-	color: rgb(90, 86, 86);
+	background-color: rgb(255, 255, 255);
+	color: #757575;
+
+	font-family: 'Comfortaa', sans-serif;
 }
+/* 
+font-family: 'Comfortaa', sans-serif;
+font-family: 'Fredoka One', sans-serif; */
 
 .header_Container {
 	display: flex;
 	flex-wrap: nowrap;
 	justify-content: center;
-	background-color: rgba(183, 243, 183, 0.959);
+	background-color: #b2ebf2;
 	border-bottom-left-radius: 20px;
 	border-bottom-right-radius: 20px;
+	color: #0097a7;
+	font-family: 'Fredoka One', sans-serif;
+	letter-spacing: 3px;
+	-webkit-box-shadow: 0 5px 7px #0096a7a9;
+	-moz-box-shadow: 0 5px 7px #0096a7a9;
+	box-shadow: 0 5px 7px #0096a7a9;
 }
 
 .header_Title {
 	text-align: center;
+	color: #f8588d;
+	font-size: 20px;
+	letter-spacing: 5px;
 }
 
 .header_Content {
 	width: 150px;
 	margin: auto;
 	text-align: center;
+	text-decoration: none;
 }
 
 .header_Content:hover {
-	background-color: rgba(90, 230, 90, 0.89);
+	background-color: #0096a779;
+	color: white;
 	border-radius: 25px;
+}
+
+.header_Content > a:hover {
+	color: white;
+}
+
+.signUp {
+	margin-left: 15px;
 }
 
 .statusContainer {
 	height: 50px;
 	text-align: center;
+	font-size: 1em;
+	color: #bdbdbd;
 }
 
 .boobContainer {
@@ -70,6 +95,7 @@ boobDrip is 17% bigger than boob
 .timerContainer {
 	display: flex;
 	justify-content: center;
+	margin-top: 12px;
 }
 
 .leftTimer,
@@ -84,9 +110,60 @@ boobDrip is 17% bigger than boob
 	margin-bottom: 0;
 }
 
+.center {
+	text-align: center;
+}
+
+#logInDiv {
+	margin-top: 35px;
+}
+
+.signUpContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	margin-left: 35px;
+}
+
+#emailDiv {
+	text-align: center;
+}
+
+#lblEmail,
+#pwd,
+#conf,
+#fName,
+#lName {
+	margin-right: 20px;
+}
+
+#lblEmail > input,
+#pwd > input,
+#conf > input,
+#fName > input,
+#lName > input {
+	margin-left: 10px;
+	font-size: 16;
+	margin-bottom: 35px;
+}
+
+.loginContainer {
+	margin-left: 35px;
+}
+
+#txtpwd,
+#txtEmail {
+	font-size: 18px;
+}
+
+.loginContainer > input {
+	font-size: 20px;
+}
+
 .timer {
 	text-align: center;
 	font-size: 32px;
+	color: #ff4081;
 }
 
 .btnContainer {
@@ -98,14 +175,74 @@ boobDrip is 17% bigger than boob
 .btnContainer > button {
 	margin: 0 20px;
 }
-.calendarContainer {
-	margin-left: 25px;
-}
 
 .calendarHeadings {
 	text-align: center;
 }
 
+.totals {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-bottom: 35px;
+}
+
+.totals > h3,
+h4 {
+	align-self: center;
+}
+
+.timeRow {
+	border: 1px solid lightgray;
+	border-radius: 2px;
+	padding: 5px;
+	margin: 1px;
+	text-align: center;
+	width: 250px;
+}
+
 .subData {
 	margin-left: 20px;
+}
+
+.subDataContainer {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+}
+
+.feedings {
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 45px;
+	letter-spacing: 3px;
+}
+
+.feedTimes {
+	text-align: center;
+}
+
+.homeDiv {
+	width: 100vw;
+}
+
+@media only screen and (max-width: 420px) {
+	.header_Title {
+		font-size: 14px;
+		letter-spacing: 1px;
+	}
+
+	.header_Content {
+		font-size: 11px;
+		width: 100px;
+	}
+
+	.timer {
+		font-size: 24px;
+	}
+
+	.rightTimer,
+	.leftTimer {
+		font-size: 14px;
+	}
 }

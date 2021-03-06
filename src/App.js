@@ -33,8 +33,14 @@ function App() {
 						<Header />
 						<Home />
 					</Route>
-					<Route exact path="/login" component={Login} />
-					<Route exact path="/signup" component={Signup} />
+					<Route exact path="/login">
+						<Header NotIn />
+						<Login />
+					</Route>
+					<Route exact path="/signup">
+						<Header NotIn />
+						<Signup />
+					</Route>
 					<Route exact path="/calendar">
 						<Header />
 						<Calendar />

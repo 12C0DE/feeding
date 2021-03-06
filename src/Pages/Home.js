@@ -5,6 +5,9 @@ import { GlobalContext } from '../Context/GlobalState';
 import { db } from '../firebase/firebase';
 import boob from '../img/boob.svg';
 import boobDrip from '../img/boob_drip.svg';
+import Button from '@material-ui/core/Button';
+import SaveIcon from '@material-ui/icons/Save';
+import { saveBtn, clearBtn } from '../Styles/styles';
 
 function Home() {
 	const history = useHistory();
@@ -139,7 +142,7 @@ function Home() {
 	);
 
 	return (
-		<div>
+		<div className="homeDiv">
 			<div className="timerContainer">
 				<div className="leftTimer">
 					<h2>
@@ -171,12 +174,25 @@ function Home() {
 					null}
 			</div>
 			<div className="btnContainer">
-				<button className="clear" onClick={() => clearTimes()}>
+				<Button
+					variant="contained"
+					color="secondary"
+					size="large"
+					style={clearBtn}
+					onClick={() => clearTimes()}
+				>
 					Clear
-				</button>
-				<button className="save" disabled={recTime} onClick={() => saveTime()}>
+				</Button>
+				<Button
+					variant="contained"
+					style={saveBtn}
+					size="large"
+					startIcon={<SaveIcon />}
+					disabled={recTime}
+					onClick={() => saveTime()}
+				>
 					Save
-				</button>
+				</Button>
 			</div>
 		</div>
 	);

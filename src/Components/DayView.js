@@ -23,8 +23,6 @@ export const DayView = ({ uid, selDate }) => {
 	let myDate = selDate.split('/');
 	let newDate = new Date(myDate[2], myDate[0] - 1, myDate[1]);
 	let dateTimestamp = newDate.getTime();
-	// let time2date = new Date(dateTimestamp).toLocaleDateString();
-	// let timeOfDay = new Date(dateTimestamp).toLocaleTimeString();
 
 	useEffect(
 		() => {
@@ -59,27 +57,28 @@ export const DayView = ({ uid, selDate }) => {
 	//   const testData = new Date(times[0].data.timeStmp).toLocaleTimeString();
 	return (
 		<div className="calendarContainer">
-			<h2>
+			<h2 className="feedings">
 				<strong>
-					<u>
-						{times.length}{' '}
-						{
-							times.length > 1 ? 'feedings' :
-							'feeding'}{' '}
-						today
-					</u>
+					- {times.length}{' '}
+					{
+						times.length > 1 ? 'Feedings' :
+						'Feeding'}{' '}
+					today -
 				</strong>
 			</h2>
+
 			<h2 className="calendarHeadings">Totals for Today</h2>
-			<h3>
-				Left - <Timer secs={leftTotal} />
-			</h3>
-			<h3>
-				Right - <Timer secs={rightTotal} />
-			</h3>
-			<h4>
-				In TOTAL - <Timer secs={total} />
-			</h4>
+			<div className="totals">
+				<h3 className="timeRow">
+					Left - <Timer secs={leftTotal} />
+				</h3>
+				<h3 className="timeRow">
+					Right - <Timer secs={rightTotal} />
+				</h3>
+				<h3 className="timeRow">
+					Total - <Timer secs={total} />
+				</h3>
+			</div>
 			<h2 className="calendarHeadings">Feedings</h2>
 			{times.map((time) => {
 				return <TimeData key={time.id} timeData={time.data} />;
