@@ -11,7 +11,6 @@
 		"@testing-library/user-event": "^12.8.1",
 		"firebase": "^8.2.9",
 		"firebase-tools": "^9.5.0",
-		"moment": "^2.29.1",
 		"netlify-cli": "^3.10.5",
 		"postinstall": "^0.7.0",
 		"react": "^17.0.1",

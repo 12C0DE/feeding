@@ -92,6 +92,11 @@ boobDrip is 17% bigger than boob
 	background-color: #c9c6b6a6;
 }
 
+.btnPrevNext:hover {
+	color: #ff4081;
+	cursor: pointer;
+}
+
 .timerContainer {
 	display: flex;
 	justify-content: center;
@@ -121,8 +126,13 @@ boobDrip is 17% bigger than boob
 .signUpContainer {
 	display: flex;
 	flex-direction: column;
-	justify-content: end;
+	justify-content: flex-end;
 	margin-left: 35px;
+}
+
+.timeSelectContainer {
+	display: flex;
+	justify-content: space-evenly;
 }
 
 #emailDiv {
@@ -209,6 +219,13 @@ h4 {
 	display: flex;
 	flex-wrap: nowrap;
 	justify-content: center;
+}
+
+#currDate {
+	text-align: center;
+	letter-spacing: 3px;
+	font-size: 24px;
+	color: #0097a7;
 }
 
 .feedings {

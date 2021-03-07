@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { db } from '../firebase/firebase';
 import { Timer } from '../Components/Timer';
+import { getDateStamp } from '../functions/dateFunctions';
 import TimeData from './TimeData';
 
-export const DayView = ({ uid, selDate }) => {
+export const DayView = ({ uid, start, end }) => {
 	const [
 		leftTotal,
 		setLeftTotal
@@ -20,9 +21,8 @@ export const DayView = ({ uid, selDate }) => {
 		times,
 		setTimes
 	] = useState([]);
-	let myDate = selDate.split('/');
-	let newDate = new Date(myDate[2], myDate[0] - 1, myDate[1]);
-	let dateTimestamp = newDate.getTime();
+	let startDate = getDateStamp(start);
+	let endDate = getDateStamp(end);
 
 	useEffect(
 		() => {
@@ -30,7 +30,8 @@ export const DayView = ({ uid, selDate }) => {
 				.collection('users')
 				.doc(uid)
 				.collection('times')
-				.where('timeStmp', '>=', dateTimestamp)
+				.where('timeStmp', '>=', startDate)
+				.where('timeStmp', '<', endDate)
 				.orderBy('timeStmp', 'desc')
 				.onSnapshot((snap) => {
 					setTimes(
@@ -49,7 +50,7 @@ export const DayView = ({ uid, selDate }) => {
 			times,
 			leftTotal,
 			rightTotal,
-			dateTimestamp,
+			startDate,
 			uid
 		]
 	);

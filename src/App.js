@@ -8,6 +8,7 @@ import Header from './Components/Header';
 import Login from './Pages/Login';
 import Signup from './Pages/Signup';
 import { auth } from './firebase/firebase';
+import { PrivateRoute } from './PrivateRoute';
 import './App.css';
 
 function App() {
@@ -29,10 +30,10 @@ function App() {
 		<div className="App">
 			<BrowserRouter>
 				<Switch>
-					<Route exact path="/home">
+					<PrivateRoute exact path="/home">
 						<Header />
 						<Home />
-					</Route>
+					</PrivateRoute>
 					<Route exact path="/login">
 						<Header NotIn />
 						<Login />
