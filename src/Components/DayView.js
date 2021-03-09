@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { db } from '../firebase/firebase';
 import { Timer } from '../Components/Timer';
 import { getDateStamp } from '../functions/dateFunctions';
-import TimeData from './TimeData';
+import { TimeData } from './TimeData';
+import Spinner from '../Components/Spinner';
 
 export const DayView = ({ uid, start, end }) => {
+	const [
+		times,
+		setTimes
+	] = useState([]);
 	const [
 		leftTotal,
 		setLeftTotal
@@ -18,9 +23,10 @@ export const DayView = ({ uid, start, end }) => {
 		setTotal
 	] = useState(0);
 	const [
-		times,
-		setTimes
-	] = useState([]);
+		isLoading,
+		setIsLoading
+	] = useState(false);
+
 	let startDate = getDateStamp(start);
 	let endDate = getDateStamp(end);
 
@@ -42,32 +48,87 @@ export const DayView = ({ uid, start, end }) => {
 					);
 				});
 
-			setLeftTotal(times.map((time) => time.data.left).reduce((a, b) => a + b, 0));
-			setRightTotal(times.map((time) => time.data.right).reduce((a, b) => a + b, 0));
-			setTotal(rightTotal + leftTotal);
+			console.log('useEffect ran');
+			// updateTotals();
 		},
 		[
-			times,
-			leftTotal,
-			rightTotal,
-			startDate,
+			end,
+			start,
 			uid
+			// leftTotal,
+			// rightTotal,
+			// total
+			// times
 		]
 	);
 
-	//   const testData = new Date(times[0].data.timeStmp).toLocaleTimeString();
+	useEffect(
+		() => {
+			updateTotals();
+		},
+		[
+			times
+		]
+	);
+
+	const updateTotals = () => {
+		console.log('ran update totals');
+		const lefts = times.map((time) => time.data.left).reduce((a, b) => a + b, 0);
+		const rights = times.map((time) => time.data.right).reduce((a, b) => a + b, 0);
+
+		setLeftTotal(lefts);
+		setRightTotal(rights);
+
+		setTotal(+rights + +lefts);
+		console.log(`total time : ${total}`);
+	};
+
+	// const delTime = (timeID) => {
+	// 	setIsLoading(true);
+
+	// 	db.collection('users').doc(uid).collection('times').doc(timeID).delete().then(() => {
+	// 		console.log(`${timeID} deleted`);
+
+	// 		const newTimes = times.filter((time) => time.id !== timeID);
+
+	// 		setTimes(newTimes);
+	// 		updateTotals();
+	// 		setIsLoading(false);
+	// 	});
+	// };
+
+	const delTime = useCallback(
+		(timeID) => {
+			setIsLoading(true);
+
+			db.collection('users').doc(uid).collection('times').doc(timeID).delete().then(() => {
+				console.log(`${timeID} deleted`);
+
+				const newTimes = times.filter((time) => time.id !== timeID);
+
+				setTimes(newTimes);
+				// updateTotals();
+				setIsLoading(false);
+			});
+		},
+		[
+			setTimes,
+			// updateTotals,
+			setIsLoading
+		]
+	);
+
 	return (
 		<div className="calendarContainer">
 			<h2 className="feedings">
 				<strong>
 					- {times.length}{' '}
 					{
-						times.length > 1 ? 'Feedings' :
-						'Feeding'}{' '}
+						times.length === 1 ? 'Feeding' :
+						'Feedings'}{' '}
 					today -
 				</strong>
 			</h2>
-
 			<h2 className="calendarHeadings">Totals for Today</h2>
 			<div className="totals">
 				<h3 className="timeRow">
@@ -82,8 +143,9 @@ export const DayView = ({ uid, start, end }) => {
 			</div>
 			<h2 className="calendarHeadings">Feedings</h2>
 			{times.map((time) => {
-				return <TimeData key={time.id} timeData={time.data} />;
+				return <TimeData key={time.id} timeData={time.data} delTime={() => delTime()} timeID={time.id} />;
 			})}
+			{isLoading && <Spinner />}
 		</div>
 	);
 };

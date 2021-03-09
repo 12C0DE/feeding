@@ -11,14 +11,14 @@ import { saveBtn, clearBtn } from '../Styles/styles';
 
 function Home() {
 	const history = useHistory();
-	const [
-		leftTime,
-		setLeftTime
-	] = useState(0);
-	const [
-		rightTime,
-		setRightTime
-	] = useState(0);
+	// const [
+	// 	leftTime,
+	// 	setLeftTime
+	// ] = useState(0);
+	// const [
+	// 	rightTime,
+	// 	setRightTime
+	// ] = useState(0);
 	const [
 		recTime,
 		setRecTime
@@ -39,7 +39,7 @@ function Home() {
 		time,
 		setTime
 	] = useState(0);
-	const { user } = useContext(GlobalContext);
+	const { leftTime, rightTime, setLeftTime, setRightTime, user } = useContext(GlobalContext);
 
 	const displayBoob = (side) => {
 		if (recTime && disabledSide !== side) {
