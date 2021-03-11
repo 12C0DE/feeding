@@ -4,13 +4,21 @@ import { Timer } from "../Components/Timer";
 import { getDateStamp } from "../functions/dateFunctions";
 import { TimeData } from "./TimeData";
 import Spinner from "../Components/Spinner";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import { modalCardStyle } from "../Styles/styles";
+import { Card } from "@material-ui/core";
+import { ModalData } from "../Components/ModalData";
 
 export const DayView = ({ uid, start, end }) => {
   const [times, setTimes] = useState([]);
   const [leftTotal, setLeftTotal] = useState(0);
   const [rightTotal, setRightTotal] = useState(0);
   const [total, setTotal] = useState(0);
+  const [modData, setModData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [passedId, setPassedId] = useState("");
 
   let startDate = getDateStamp(start);
   let endDate = getDateStamp(end);
@@ -30,25 +38,13 @@ export const DayView = ({ uid, start, end }) => {
           }))
         );
       });
-
-    console.log("useEffect ran");
-    // updateTotals();
-  }, [
-    end,
-    start,
-    uid
-    // leftTotal,
-    // rightTotal,
-    // total
-    // times
-  ]);
+  }, [end, start, uid]);
 
   useEffect(() => {
     updateTotals();
   }, [times]);
 
   const updateTotals = () => {
-    console.log("ran update totals");
     const lefts = times.map(time => time.data.left).reduce((a, b) => a + b, 0);
     const rights = times
       .map(time => time.data.right)
@@ -58,7 +54,6 @@ export const DayView = ({ uid, start, end }) => {
     setRightTotal(rights);
 
     setTotal(+rights + +lefts);
-    console.log(`total time : ${total}`);
   };
 
   const delTime = timeID => {
@@ -70,73 +65,75 @@ export const DayView = ({ uid, start, end }) => {
       .doc(timeID)
       .delete()
       .then(() => {
-        console.log(`${timeID} deleted`);
-
         const newTimes = times.filter(time => time.id !== timeID);
 
         setTimes(newTimes);
-        //updateTotals();
         setIsLoading(false);
       });
   };
 
-  //   const delTime = useCallback(
-  //     timeID => {
-  //       setIsLoading(true);
-
-  //       db.collection("users")
-  //         .doc(uid)
-  //         .collection("times")
-  //         .doc(timeID)
-  //         .delete()
-  //         .then(() => {
-  //           console.log(`${timeID} deleted`);
-
-  //           const newTimes = times.filter(time => time.id !== timeID);
-
-  //           setTimes(newTimes);
-  //           // updateTotals();
-  //           setIsLoading(false);
-  //         });
-  //     },
-  //     [
-  //       setTimes,
-  //       // updateTotals,
-  //       setIsLoading
-  //     ]
-  //   );
+  const handleOpenMod = (mData, timeId) => {
+    setOpen(true);
+    setModData(mData);
+    setPassedId(timeId);
+  };
 
   return (
-    <div className="calendarContainer">
-      <h2 className="feedings">
-        <strong>
-          - {times.length} {times.length === 1 ? "Feeding" : "Feedings"} today -
-        </strong>
-      </h2>
-      <h2 className="calendarHeadings">Totals for Today</h2>
-      <div className="totals">
-        <h3 className="timeRow">
-          Left - <Timer secs={leftTotal} />
-        </h3>
-        <h3 className="timeRow">
-          Right - <Timer secs={rightTotal} />
-        </h3>
-        <h3 className="timeRow">
-          Total - <Timer secs={total} />
-        </h3>
+    <React.Fragment>
+      <div className="calendarContainer">
+        <h2 className="feedings">
+          <strong>
+            - {times.length} {times.length === 1 ? "Feeding" : "Feedings"} today
+            -
+          </strong>
+        </h2>
+        <h2 className="calendarHeadings">Totals for Today</h2>
+        <div className="totals">
+          <h3 className="timeRow">
+            Left - <Timer secs={leftTotal} />
+          </h3>
+          <h3 className="timeRow">
+            Right - <Timer secs={rightTotal} />
+          </h3>
+          <h3 className="timeRow">
+            Total - <Timer secs={total} />
+          </h3>
+        </div>
+        <h2 className="calendarHeadings">Feedings</h2>
+        {times.map(time => {
+          return (
+            <TimeData
+              key={time.id}
+              timeData={time.data}
+              delTime={() => delTime(time.id)}
+              timeID={time.id}
+              modalOpen={() => handleOpenMod(time.data, time.id)}
+            />
+          );
+        })}
+        {isLoading && <Spinner />}
       </div>
-      <h2 className="calendarHeadings">Feedings</h2>
-      {times.map(time => {
-        return (
-          <TimeData
-            key={time.id}
-            timeData={time.data}
-            delTime={() => delTime(time.id)}
-            timeID={time.id}
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={open}
+        onClose={() => setOpen(false)}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500
+        }}
+      >
+        <Card raised={false} style={modalCardStyle}>
+          <ModalData
+            modData={modData}
+            startDate={start}
+            uid={uid}
+            timeId={passedId}
+            close={() => setOpen(false)}
           />
-        );
-      })}
-      {isLoading && <Spinner />}
-    </div>
+        </Card>
+      </Modal>
+    </React.Fragment>
   );
 };

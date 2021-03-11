@@ -3,8 +3,9 @@ import { Timer } from "./Timer";
 import { Card } from "@material-ui/core";
 import "../App.css";
 import { cardStyle } from "../Styles/styles";
+import EditIcon from "@material-ui/icons/Edit";
 
-export const TimeData = ({ timeData, delTime }) => {
+export const TimeData = ({ timeData, delTime, modalOpen }) => {
   let timeOfDay = new Date(timeData.timeStmp).toLocaleTimeString();
 
   return (
@@ -23,6 +24,11 @@ export const TimeData = ({ timeData, delTime }) => {
         <p className="subData">
           Right - <Timer secs={timeData.right} />
         </p>
+      </div>
+      <div className="edit">
+        <button onClick={modalOpen}>
+          <EditIcon fontSize={"small"} color="disabled" />
+        </button>
       </div>
     </Card>
   );

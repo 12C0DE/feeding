@@ -31,9 +31,6 @@ function Calendar() {
   const addDate = () => {
     const currDate = new Date(endDate);
 
-    console.log(`currdate ${currDate.getTime()}`);
-    console.log(`date() = ${new Date().getTime()}`);
-
     if (currDate.getTime() > new Date().getTime()) {
       return;
     }
