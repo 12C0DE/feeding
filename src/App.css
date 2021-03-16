@@ -1,198 +1,199 @@
 body {
-  margin: 0;
-  padding: 0;
-  background-color: rgb(255, 255, 255);
-  color: #757575;
+	margin: 0;
+	padding: 0;
+	background-color: rgb(255, 255, 255);
+	color: #757575;
 
-  font-family: "Comfortaa", sans-serif;
+	font-family: "Comfortaa", sans-serif;
 }
 /* 
 font-family: 'Comfortaa', sans-serif;
 font-family: 'Fredoka One', sans-serif; */
 
 .header_Container {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  background-color: #b2ebf2;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  color: #0097a7;
-  font-family: "Fredoka One", sans-serif;
-  letter-spacing: 3px;
-  -webkit-box-shadow: 0 5px 7px #0096a7a9;
-  -moz-box-shadow: 0 5px 7px #0096a7a9;
-  box-shadow: 0 5px 7px #0096a7a9;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+	background-color: #b2ebf2;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	color: #0097a7;
+	font-family: "Fredoka One", sans-serif;
+	letter-spacing: 3px;
+	-webkit-box-shadow: 0 5px 7px #0096a7a9;
+	-moz-box-shadow: 0 5px 7px #0096a7a9;
+	box-shadow: 0 5px 7px #0096a7a9;
 }
 
 .header_Title {
-  text-align: center;
-  color: #f8588d;
-  font-size: 20px;
-  letter-spacing: 5px;
+	text-align: center;
+	color: #f8588d;
+	font-size: 20px;
+	letter-spacing: 5px;
 }
 
 .header_Content {
-  width: 150px;
-  margin: auto;
-  text-align: center;
-  text-decoration: none;
+	width: 150px;
+	margin: auto;
+	text-align: center;
+	text-decoration: none;
 }
 
 .header_Content:hover {
-  background-color: #0096a779;
-  color: white;
-  border-radius: 25px;
+	background-color: #0096a779;
+	color: white;
+	border-radius: 25px;
 }
 
 .header_Content > a:hover {
-  color: white;
+	color: white;
 }
 
 .signUp {
-  margin-left: 15px;
+	margin-left: 15px;
 }
 
 .statusContainer {
-  height: 50px;
-  text-align: center;
-  font-size: 1em;
-  color: #bdbdbd;
+	height: 50px;
+	text-align: center;
+	font-size: 1em;
+	color: #bdbdbd;
 }
 
 .boobContainer {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
 }
 
 .boob {
-  height: 180px;
-  padding: 10px;
-  margin-bottom: 31px;
+	height: 180px;
+	padding: 10px;
+	margin-bottom: 31px;
 }
 /* 
 boobDrip is 17% bigger than boob
 */
 .boobDrip {
-  height: 211px;
-  padding: 10px;
+	height: 211px;
+	padding: 10px;
 }
 .btnBoob {
-  background-color: transparent;
-  border: none;
-  height: 240px;
-  width: 270px;
-  margin-top: 5px;
+	background-color: transparent;
+	border: none;
+	height: 240px;
+	width: 270px;
+	margin-top: 5px;
 }
 
 .btnBoob:hover {
-  cursor: pointer;
-  border-radius: 10px;
-  background-color: #c9c6b6a6;
+	cursor: pointer;
+	border-radius: 10px;
+	background-color: #c9c6b6a6;
 }
 
 .btnPrevNext:hover {
-  color: #ff4081;
-  cursor: pointer;
+	color: #ff4081;
+	cursor: pointer;
 }
 
 .timerContainer {
-  display: flex;
-  justify-content: center;
-  margin-top: 12px;
+	display: flex;
+	justify-content: center;
+	margin-top: 12px;
 }
 
 .leftTimer,
 .rightTimer {
-  width: 270px;
-  text-align: center;
+	width: 270px;
+	text-align: center;
 }
 
 .leftTimer > h2,
 .rightTimer > h2 {
-  margin-top: 10px;
-  margin-bottom: 0;
+	margin-top: 10px;
+	margin-bottom: 0;
 }
 
 .center {
-  text-align: center;
+	text-align: center;
 }
 
 .updateDiv {
-  margin-top: 30px;
-  text-align: center;
+	margin-top: 30px;
+	text-align: center;
 }
 
 .margRight {
-  margin-right: 50px;
+	margin-right: 50px;
 }
 
 #leftSeconds,
 #rightSeconds {
-  margin-left: 10px;
+	margin-left: 10px;
 }
 
 .modalDiv {
-  color: #757575;
-  /* display: flex;
+	color: #757575;
+	/* display: flex;
   flex-direction: column;
   justify-content: center; */
 }
 
 .modalDiv > h3 {
-  margin-left: 25px;
+	margin-left: 25px;
 }
 
 .timeInputDiv {
-  flex-basis: 35%;
-  text-align: center;
+	flex-basis: 35%;
+	text-align: center;
 }
 
 .timeInput {
-  width: 80%;
-  font-size: 1em;
+	width: 80%;
+	font-size: 1em;
 }
 
 .minsSecsHeading {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin-bottom: 10px;
-  font-size: 0.9em;
-  color: gray;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	margin-top: 10px;
+	margin-bottom: -10px;
+	font-size: 0.9em;
+	color: gray;
 }
 
 .amPm {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .timeDiv {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: stretch;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: stretch;
 }
 
 #logInDiv {
-  margin-top: 35px;
+	margin-top: 35px;
 }
 
 .signUpContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  margin-left: 35px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	margin-left: 35px;
 }
 
 .timeSelectContainer {
-  display: flex;
-  justify-content: space-evenly;
+	display: flex;
+	justify-content: space-evenly;
 }
 
 #emailDiv {
-  text-align: center;
+	text-align: center;
 }
 
 #lblEmail,
@@ -200,7 +201,7 @@ boobDrip is 17% bigger than boob
 #conf,
 #fName,
 #lName {
-  margin-right: 20px;
+	margin-right: 20px;
 }
 
 #lblEmail > input,
@@ -208,154 +209,154 @@ boobDrip is 17% bigger than boob
 #conf > input,
 #fName > input,
 #lName > input {
-  margin-left: 10px;
-  font-size: 16;
-  margin-bottom: 35px;
+	margin-left: 10px;
+	font-size: 16;
+	margin-bottom: 35px;
 }
 
 .loginContainer {
-  margin-left: 35px;
+	margin-left: 35px;
 }
 
 #txtpwd,
 #txtEmail {
-  font-size: 18px;
+	font-size: 18px;
 }
 
 .loginContainer > input {
-  font-size: 20px;
+	font-size: 20px;
 }
 
 .timer {
-  text-align: center;
-  font-size: 32px;
-  color: #ff4081;
+	text-align: center;
+	font-size: 32px;
+	color: #ff4081;
 }
 
 .btnContainer {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
 }
 
 .btnContainer > button {
-  margin: 0 20px;
+	margin: 0 20px;
 }
 
 .calendarHeadings {
-  text-align: center;
+	text-align: center;
 }
 
 .totals {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 35px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-bottom: 35px;
 }
 
 .totals > h3,
 h4 {
-  align-self: center;
+	align-self: center;
 }
 
 .timeRow {
-  border: 1px solid lightgray;
-  border-radius: 2px;
-  padding: 5px;
-  margin: 1px;
-  text-align: center;
-  width: 250px;
+	border: 1px solid lightgray;
+	border-radius: 2px;
+	padding: 5px;
+	margin: 1px;
+	text-align: center;
+	width: 250px;
 }
 
 .divSpinner {
-  display: flex;
-  justify-content: center;
-  z-index: 5;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  background-color: white;
+	display: flex;
+	justify-content: center;
+	z-index: 5;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	background-color: white;
 }
 
 .delX {
-  text-align: right;
+	text-align: right;
 }
 
 .delX > button {
-  border: none;
-  background-color: #e0dfdf;
-  font-size: 16px;
-  border-radius: 5px;
+	border: none;
+	background-color: #e0dfdf;
+	font-size: 16px;
+	border-radius: 5px;
 }
 
 .delX > button:hover {
-  background-color: rgb(240, 126, 126);
-  cursor: pointer;
+	background-color: rgb(240, 126, 126);
+	cursor: pointer;
 }
 
 .edit {
-  text-align: right;
-  margin-bottom: 3px;
+	text-align: right;
+	margin-bottom: 3px;
 }
 
 .edit > button {
-  border: none;
-  background-color: transparent;
+	border: none;
+	background-color: transparent;
 }
 
 .edit > button:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .subData {
-  margin-left: 20px;
+	margin-left: 20px;
 }
 
 .subDataContainer {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
 }
 
 #currDate {
-  text-align: center;
-  letter-spacing: 3px;
-  font-size: 24px;
-  color: #0097a7;
+	text-align: center;
+	letter-spacing: 3px;
+	font-size: 24px;
+	color: #0097a7;
 }
 
 .feedings {
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 45px;
-  letter-spacing: 3px;
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 45px;
+	letter-spacing: 3px;
 }
 
 .feedTimes {
-  text-align: center;
+	text-align: center;
 }
 
 .homeDiv {
-  width: 100vw;
+	width: 100vw;
 }
 
 @media only screen and (max-width: 420px) {
-  .header_Title {
-    font-size: 14px;
-    letter-spacing: 1px;
-  }
+	.header_Title {
+		font-size: 14px;
+		letter-spacing: 1px;
+	}
 
-  .header_Content {
-    font-size: 11px;
-    width: 100px;
-  }
+	.header_Content {
+		font-size: 11px;
+		width: 100px;
+	}
 
-  .timer {
-    font-size: 24px;
-  }
+	.timer {
+		font-size: 24px;
+	}
 
-  .rightTimer,
-  .leftTimer {
-    font-size: 14px;
-  }
+	.rightTimer,
+	.leftTimer {
+		font-size: 14px;
+	}
 }
